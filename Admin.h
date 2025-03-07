@@ -1,7 +1,24 @@
 #pragma once
 #include "User.h"
-class Admin :
-    public User
+
+#include<iostream>
+#include<string>        
+#include<vector>
+
+using namespace std;
+
+class Admin : public User
 {
+public:
+    Admin(const string& uname, const string& pass) : User(uname, pass) {}
+
+    void adminActions();
+
+    void mainMenu() override {
+        adminActions();
+    }
+
+
+
 };
 
