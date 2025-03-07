@@ -1,23 +1,4 @@
 ﻿  Admin.cpp
-  Book.cpp
-C:\Users\anshu\Documents\Anshum Projects\OOP-COM5012-Assignment\Admin.cpp(32,44): error C2061: syntax error: identifier 'Member'
-C:\Users\anshu\Documents\Anshum Projects\OOP-COM5012-Assignment\Admin.cpp(36,44): error C2061: syntax error: identifier 'Librarian'
-  Librarian.cpp
-  Member.cpp
-  test.cpp
-C:\Users\anshu\Documents\Anshum Projects\OOP-COM5012-Assignment\test.cpp(12,5): error C2653: 'User': is not a class or namespace name
-C:\Users\anshu\Documents\Anshum Projects\OOP-COM5012-Assignment\test.cpp(12,11): error C3861: 'userMenu': identifier not found
-C:\Users\anshu\Documents\Anshum Projects\OOP-COM5012-Assignment\test.cpp(23,5): error C3861: 'getline': identifier not found
-C:\Users\anshu\Documents\Anshum Projects\OOP-COM5012-Assignment\test.cpp(26,5): error C3861: 'getline': identifier not found
-C:\Users\anshu\Documents\Anshum Projects\OOP-COM5012-Assignment\test.cpp(28,5): error C2065: 'User': undeclared identifier
-C:\Users\anshu\Documents\Anshum Projects\OOP-COM5012-Assignment\test.cpp(28,11): error C2065: 'userType': undeclared identifier
-C:\Users\anshu\Documents\Anshum Projects\OOP-COM5012-Assignment\test.cpp(33,9): error C2065: 'userType': undeclared identifier
-C:\Users\anshu\Documents\Anshum Projects\OOP-COM5012-Assignment\test.cpp(33,24): error C2061: syntax error: identifier 'Member'
-C:\Users\anshu\Documents\Anshum Projects\OOP-COM5012-Assignment\test.cpp(37,9): error C2065: 'userType': undeclared identifier
-C:\Users\anshu\Documents\Anshum Projects\OOP-COM5012-Assignment\test.cpp(37,24): error C2061: syntax error: identifier 'Librarian'
-C:\Users\anshu\Documents\Anshum Projects\OOP-COM5012-Assignment\test.cpp(43,13): error C2065: 'userType': undeclared identifier
-C:\Users\anshu\Documents\Anshum Projects\OOP-COM5012-Assignment\test.cpp(43,28): error C2061: syntax error: identifier 'Admin'
-C:\Users\anshu\Documents\Anshum Projects\OOP-COM5012-Assignment\test.cpp(58,5): error C2065: 'userType': undeclared identifier
   User.cpp
 C:\Users\anshu\Documents\Anshum Projects\OOP-COM5012-Assignment\User.cpp(3,7): error C2084: function 'User::User(const std::string &,const std::string &)' already has a body
       C:\Users\anshu\Documents\Anshum Projects\OOP-COM5012-Assignment\User.h(20,9):

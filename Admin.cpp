@@ -1,4 +1,7 @@
 #include "Admin.h"
+#include "User.h"
+#include "Member.h"
+#include "Librarian.h"
 
 void Admin::adminActions()
 {
