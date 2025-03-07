@@ -12,9 +12,6 @@ private:        // Private memvers added, encapsulation.
     string title;
     string author;
     string status;
-
-
-
 public:      // public members.
     Book(const string& t, const string& a, const string& s); 
 
