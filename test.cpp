@@ -1,20 +1,23 @@
 #include <iostream>
-
+#include <vector>
 #include "User.h"   
 #include "Member.h"
 #include "Librarian.h"
 #include "Admin.h"
+#include "Book.h"
 using namespace std;
 
-int main()
-{
-    // vector<Book*> books;
-// books.push_back(new)
+vector<class User*> accounts;
+
+int main() {
+	//vector<Book*> books;  //Have a look at this line later.
+ //   books.push_back(new Book("Title1", "Author1", "Available"));
 
     int userSelection = 0;
 
+    Admin user1("SLMS_Admin", "123");
     // This will display the main menu.
-    User::userMenu();
+    user1.userMenu();
     cin >> userSelection;
     cin.ignore();
 
@@ -53,9 +56,8 @@ int main()
         }
         break;
     default:
-        cout << "Invalid selection. Appliacation is closing." << endl;
+        cout << "Invalid selection. Application is closing." << endl;
         return 1;
-
     }
 
     cout << "\nHello, " << userId << "\n";
@@ -64,5 +66,3 @@ int main()
 
     return 0;
 }
-
-

@@ -1,7 +1,7 @@
 ﻿  Admin.cpp
+  Librarian.cpp
+  Member.cpp
+  test.cpp
   User.cpp
-C:\Users\anshu\Documents\Anshum Projects\OOP-COM5012-Assignment\User.cpp(3,7): error C2084: function 'User::User(const std::string &,const std::string &)' already has a body
-      C:\Users\anshu\Documents\Anshum Projects\OOP-COM5012-Assignment\User.h(20,9):
-      see previous definition of 'User::User'
-  
   Generating Code...
+  test.vcxproj -> C:\Users\anshu\Documents\Anshum Projects\OOP-COM5012-Assignment\x64\Debug\test.exe

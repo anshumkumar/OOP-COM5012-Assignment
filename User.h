@@ -3,9 +3,10 @@
 #include<string>        
 #include<vector>
 
+
 using namespace std;
 
-vector<class User*> accounts;
+//vector<class User*> accounts;  I think this is needed in test file.
 
 class User
 {
@@ -17,7 +18,7 @@ class User
         string password;
 
     public:
-        User(const string & uname, const string & pass) : id(uname), password(pass) {}
+        User(const string& uname, const string& pass);
         virtual ~User() = default;
 
         virtual void mainMenu() = 0;
@@ -26,6 +27,8 @@ class User
 
         const string& getId() const { return id; }
         const string& getPassword() const { return password; }
+
+        static vector<User*> accounts;
 
         // main menu.
 
