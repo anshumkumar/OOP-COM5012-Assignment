@@ -28,7 +28,9 @@ class User
         const string& getId() const { return id; }
         const string& getPassword() const { return password; }
 
-        static vector<User*> accounts;
+        
+
+        
 
         // main menu.
 
@@ -40,4 +42,8 @@ class User
             cout << "3. Admin" << endl;
             cout << "4. Exit" << endl;
         }
+
+        static vector<User*> accounts;
+
+
 };

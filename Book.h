@@ -13,7 +13,8 @@ private:        // Private memvers added, encapsulation.
     string author;
     string status;
 public:      // public members.
-    Book(const string& t, const string& a, const string& s); 
+    Book(const string& t, const string& a, const string& s = "Available")
+    : title(t), author(a), status(s) {}
 
     // get functions.
 
@@ -33,5 +34,9 @@ public:      // public members.
     void returnBook();
 
     void reserveBook();
+
+    void searchBook() const;
+
+	void display() const;
 };
 

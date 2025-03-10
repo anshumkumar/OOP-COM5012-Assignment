@@ -1,7 +1,6 @@
 ﻿  Admin.cpp
-  Librarian.cpp
+  Book.cpp
   Member.cpp
   test.cpp
-  User.cpp
   Generating Code...
   test.vcxproj -> C:\Users\anshu\Documents\Anshum Projects\OOP-COM5012-Assignment\x64\Debug\test.exe
