@@ -8,7 +8,7 @@ using namespace std;
 
 
 class Book {    //First class in SLM system, book class.
-private:        // Private memvers added, encapsulation. 
+private:        // Private members added, encapsulation. 
     string title;
     string author;
     string status;
@@ -33,9 +33,15 @@ public:      // public members.
 
     void returnBook();
 
+	// Function for reserving a book
+
     void reserveBook();
 
+	// Function for searching a book
+
     void searchBook() const;
+
+	// Function for displaying book details
 
 	void display() const;
 };

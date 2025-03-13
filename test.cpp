@@ -11,20 +11,26 @@
 
 using namespace std;
 
-// Assuming User::accounts is declared as a static vector in User.h
-// e.g., in User.h, you might have: 
-//   static vector<User*> accounts;
+
 
 int main() {
 
-    // Create some default accounts (for testing purposes)
-    User::accounts.push_back(new Member("user1", "password1"));
-    User::accounts.push_back(new Member("user2", "password2"));
-    User::accounts.push_back(new Member("user3", "password3"));
-    User::accounts.push_back(new Member("user4", "password4"));
-    User::accounts.push_back(new Member("user5", "password5"));
+    if (User::accounts.empty())
+
+        // Admin can add user accounts here.
+    {
+
+        User::accounts.push_back(new Member("user1", "password1"));
+        User::accounts.push_back(new Member("user2", "password2"));
+        User::accounts.push_back(new Member("user3", "password3"));
+        User::accounts.push_back(new Member("user4", "password4"));
+        User::accounts.push_back(new Member("user5", "password5"));
+
+    }
 
     // Create a library collection as a vector of Book objects.
+    //Admin can add book titles. Librarian is also able to add them.
+
     vector<Book> library;
     library.push_back(Book("The Great Gatsby", "F. Scott Fitzgerald"));
     library.push_back(Book("To Kill a Mockingbird", "Harper Lee"));
@@ -33,73 +39,124 @@ int main() {
     library.push_back(Book("The Catcher in the Rye", "J.D. Salinger"));
 
     // Display the main user selection menu.
-    User::userMenu();
-    int userSelection = 0;
-    cin >> userSelection;
-    cin.ignore();
 
-    if (userSelection == 4) {
-        cout << "Application is closing." << endl;
-        return 0;
-    }
 
-    // Ask the user to enter id and password.
-    string userId, userPassword;
-    cout << "Please enter your user id: ";
-    getline(cin, userId);
-    cout << "Please enter your password: ";
-    getline(cin, userPassword);
+    int userSelection = 0;  //User choice will be stored once they select it. 
+    do
+    {
+        User::userMenu();    //This will display the user menu
+		cin >> userSelection;    //User's selection collected here.
+        cin.ignore();
 
-    User* userType = nullptr;
 
-    switch (userSelection) {
-    case 1:
-        cout << "\nYou are logged in as Member" << endl;
-        if ((userId == "user1" && userPassword == "password1") ||
-            (userId == "user2" && userPassword == "password2") ||
-            (userId == "user3" && userPassword == "password3") ||
-            (userId == "user4" && userPassword == "password4") ||
-            (userId == "user5" && userPassword == "password5")) {
-            userType = new Member(userId, userPassword);
+
+        if (userSelection == 4) {
+            cout << "Application is closing." << endl;
+            break;
+        }
+
+        // Appliation closes if user selects option 4.
+
+        // Ask the user to enter id and password.
+        string userId, userPassword;
+        cout << "Please enter your user id: ";
+        getline(cin, userId);
+        cout << "Please enter your password: ";
+        getline(cin, userPassword);
+
+
+        User* loggedinUser = nullptr;
+        if (userSelection == 1) { // Member
+            for (User* u : User::accounts) {
+                if (u->getId() == userId && u->getPassword() == userPassword) {
+                    if (dynamic_cast<Member*>(u) != nullptr) {  // This will check if the user is a member.
+                                                                // It's important because only members should login here, not admins/librarians.
+                        loggedinUser = u;
+                        break;
+                    }
+                }
+            }
+            if (loggedinUser == nullptr) {
+                cout << "Invalid Member credentials. Please try again." << endl;
+                continue; //The user can try again to login
+            }
+        }
+
+        else if (userSelection == 2) { 
+            if (userId == "SLMS_Librarian" && userPassword == "secretlib123") {
+				//These are login credentials for librarian.
+                
+                for (User* u : User::accounts) {
+					if (u->getId() == userId && dynamic_cast<Librarian*>(u) != nullptr) {   //Dyanmic cast makes sure user is a librarian.
+                        loggedinUser = u;
+                        break;
+                    }
+                }
+               
+                if (loggedinUser == nullptr) {
+                    loggedinUser = new Librarian(userId, userPassword);
+                    User::accounts.push_back(loggedinUser); 
+                }
+            }
+
+            else {
+                cout << "Invalid Admin credentials. Please try again." << endl;
+				continue; // This allowws the librarian to try again.
+            }
+
+        }
+
+
+        else if (userSelection == 3) { // Admin
+            
+            if (userId == "SLMS_Admin" && userPassword == "secretpass123.abc") {
+                
+                for (User* u : User::accounts) {
+                    if (u->getId() == userId && dynamic_cast<Admin*>(u) != nullptr) {
+                        loggedinUser = u;
+                        break;
+                    }
+                }
+                if (loggedinUser == nullptr) {
+                    loggedinUser = new Admin(userId, userPassword);
+                    
+                    User::accounts.push_back(loggedinUser);
+                }
+            }
+            else {
+                cout << "Invalid Admin credentials. Please try again." << endl;
+                continue;
+            }
+
+			// Similar logic like member and librarian is used here.
         }
         else {
-            cout << "Invalid login details. Application is closing." << endl;
-            return 1;
+            cout << "Invalid selection. Please try again." << endl;
+            continue;
         }
-        break;
-    case 2:
-        cout << "\nYou are logged in as Librarian" << endl;
-        userType = new Librarian(userId, userPassword);
-        break;
-    case 3:
-        cout << "\nYou are logged in as Admin" << endl;
-        if (userId == "SLMS_Admin" && userPassword == "secretpass123.abc") {
-            userType = new Admin(userId, userPassword);
+
+        cout << "\nHello, " << loggedinUser->getId() << "!\n";
+
+        
+        if (dynamic_cast<Admin*>(loggedinUser)) {
+            // For Admin, mainMenu() calls adminActions()
+            loggedinUser->mainMenu();
         }
-        else {
-            cout << "Invalid login details. Application is closing." << endl;
-            return 1;
+        else if (dynamic_cast<Librarian*>(loggedinUser)) {
+            
+            dynamic_cast<Librarian*>(loggedinUser)->librarianActions(library);
+            // Librarian function appears once librarian logs in.
         }
-        break;
-    default:
-        cout << "Invalid selection. Application is closing." << endl;
-        return 1;
-    }
+        else if (dynamic_cast<Member*>(loggedinUser)) {
+            dynamic_cast<Member*>(loggedinUser)->memberActions(library);
+			// Member function appears once member logs in.
+        }
 
-    cout << "\nHello, " << userId << "\n";
+        
 
-    // If the user is a Member, call memberActions (which accepts the library).
-    // For other types, just call mainMenu.
-    Member* mPtr = dynamic_cast<Member*>(userType);
-    if (mPtr != nullptr) {
-        mPtr->memberActions(library);
-    }
-    else {
-        userType->mainMenu();
-    }
+    } while (userSelection != 4);
 
-    delete userType;
-    // Clean up the accounts created under the User class.
+    
     for (User* u : User::accounts)
         delete u;
     User::accounts.clear();

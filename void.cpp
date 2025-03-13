@@ -1,11 +1,10 @@
 #include "Book.h"
 
-
 // Function definition for searchBook
-void Book::searchBook() const {
+void Book::searchBook() {
     cout << "Searching for book: " << title << " by " << author << endl;
 }
-// Function to borrow a book
+
 void Book::borrowBook() {
     if (status == "Available") {
         status = "Borrowed";
@@ -38,7 +37,7 @@ void Book::reserveBook() {
     }
 }
 
-// function for displaying book details
+// Display book details
 void Book::display() const {
     cout << "Title: " << title << ", Author: " << author
         << ", Status: " << status << endl;

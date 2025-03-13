@@ -18,6 +18,7 @@ class User
         string password;
 
     public:
+		// de constructor
         User(const string& uname, const string& pass);
         virtual ~User() = default;
 
@@ -33,6 +34,7 @@ class User
         
 
         // main menu.
+        //this allows the person on system to choose an account type for login.
 
         static void userMenu() {
             cout << "Welcome to SMART LIBRARY MANAGEMENT SYSTEM" << endl;
@@ -43,7 +45,7 @@ class User
             cout << "4. Exit" << endl;
         }
 
-        static vector<User*> accounts;
+        static vector<User*> accounts;  //Used to store accounts
 
 
 };
