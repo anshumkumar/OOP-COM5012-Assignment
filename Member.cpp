@@ -97,7 +97,7 @@ void Member::memberActions(vector<Book>& books) {
             bool found = false;
             for (auto& book : books) {
                 if (book.getTitle() == reserveTitle) {
-                    book.reserveBook();
+                    book.reserveBook();  // Reserves book function. Present in book class.
                     found = true;
                     break;
                 }
