@@ -8,7 +8,7 @@ void Book::searchBook() const {
 // Function to borrow a book
 void Book::borrowBook() {
     if (status == "Available") {
-        status = "Borrowed";
+        status = "Borrowed";   //status is changed to borrowed/
         cout << "You have borrowed the book: " << title << endl;
     }
     else {
@@ -30,7 +30,7 @@ void Book::returnBook() {
 // Reserve book function
 void Book::reserveBook() {
     if (status == "Available") {
-        status = "Reserved";
+        status = "Reserved";   //changes status to reserved.
         cout << "You have reserved the book: " << title << endl;
     }
     else {

@@ -1,5 +1,6 @@
 // Member.cpp
 #include "Member.h"
+
 #include <iostream>
 #include <string>
 using namespace std;
@@ -13,7 +14,7 @@ void Member::memberActions(vector<Book>& books) {
         mainMenu();
         cout << "Enter your choice: ";
 		cin >> memberSelection;    //User's choice will be stored in memberSelection.
-        cin.ignore(); // Clear newline
+        cin.ignore(); // Clear newline, ignore it.
 
         if (memberSelection == 1) {
             // Search for a book by title

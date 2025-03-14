@@ -18,7 +18,7 @@ public:
     Member(const std::string& uname, const std::string& pass) : User(uname, pass) {}
 	// Constructor for the Member class above. 
 
-	// This menu is shown when member logs in.
+	// This menu is shown when member logs in. This is an example of polymorphism.
     void mainMenu() override {
         cout << "\n--- Member Menu ---" << endl;
         cout << "1. Search for a book" << endl;

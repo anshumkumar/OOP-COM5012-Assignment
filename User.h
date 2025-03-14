@@ -22,7 +22,8 @@ class User
         User(const string& uname, const string& pass);
         virtual ~User() = default;
 
-        virtual void mainMenu() = 0;
+		virtual void mainMenu() = 0; //used for polymorphism. 
+                                     // different members will have their own menu. They will override this.
 
         // Get functions.
 
@@ -33,7 +34,7 @@ class User
 
         
 
-        // main menu.
+        // main menu for every user.
         //this allows the person on system to choose an account type for login.
 
         static void userMenu() {

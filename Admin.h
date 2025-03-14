@@ -14,7 +14,8 @@ public:
 
     void adminActions();
 
-	void mainMenu() override {   //Polymorphism is used here.
+	void mainMenu() override {   //Polymorphism is used here. admin will have its own menu.
+                                 //admin actions overrides main menu.
         adminActions();
     }
 

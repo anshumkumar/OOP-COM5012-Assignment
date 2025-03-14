@@ -100,7 +100,7 @@ int main() {
             }
 
             else {
-                cout << "Invalid Admin credentials. Please try again." << endl;
+                cout << "Invalid Librarian credentials. Please try again." << endl;
 				continue; // This allowws the librarian to try again.
             }
 
